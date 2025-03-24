@@ -78,42 +78,49 @@ document.addEventListener("DOMContentLoaded", function () {
             // Sección de actividades
             const activitiesTitle = document.querySelector('#actividades .section-title');
             if (activitiesTitle && translations[lang].activities?.title) {
-                activitiesTitle.innerHTML = 
-                    `${translations[lang].activities.title} <span class="highlight">${translations[lang].activities.title.split(' ')[1] || ''}</span>`;
+                activitiesTitle.innerHTML = translations[lang].activities.title;
             }
-    
+            const testimoniosTitle = document.querySelector('#testimonios-title');
+            if (testimoniosTitle && translations[lang].voces?.title) {
+            testimoniosTitle.innerHTML = translations[lang].voces.title;
+            }
+
+            const contactTitle = document.querySelector('#contact-title');
+            if (contactTitle && translations[lang].contact?.title) {
+            contactTitle.innerHTML = translations[lang].contact.title;
+            }
             // Actualizar cards de actividades
             const activityCards = document.querySelectorAll('.experience-card');
             activityCards[0].querySelector('h3').textContent = translations[lang].activities.boat;
             activityCards[0].querySelector('.card-content p').textContent = translations[lang].activities.boatDesc;
-            activityCards[0].querySelectorAll('.features-list li')[0].textContent = `${translations[lang].activities.duration}: 2 horas`;
-            activityCards[0].querySelectorAll('.features-list li')[1].textContent = translations[lang].activities.people;
-            activityCards[0].querySelectorAll('.features-list li')[2].textContent = translations[lang].activities.route;
+            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 horas`;
+            activityCards[0].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.people;
+            activityCards[0].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.route;
             activityCards[0].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             activityCards[1].querySelector('h3').textContent = translations[lang].activities.tours;
             activityCards[1].querySelector('.card-content p').textContent = translations[lang].activities.toursDesc;
-            activityCards[1].querySelectorAll('.features-list li')[0].textContent = `${translations[lang].activities.duration}: 4 horas`;
-            activityCards[1].querySelectorAll('.features-list li')[1].textContent = translations[lang].activities.groups;
-            activityCards[1].querySelectorAll('.features-list li')[2].textContent = translations[lang].activities.photo;
+            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 4 horas`;
+            activityCards[1].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.groups;
+            activityCards[1].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.photo;
             activityCards[1].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             activityCards[2].querySelector('h3').textContent = translations[lang].activities.dinner;
             activityCards[2].querySelector('.card-content p').textContent = translations[lang].activities.dinnerDesc;
-            activityCards[2].querySelectorAll('.features-list li')[0].textContent = translations[lang].activities.menu;
-            activityCards[2].querySelectorAll('.features-list li')[1].textContent = translations[lang].activities.wine;
-            activityCards[2].querySelectorAll('.features-list li')[2].textContent = translations[lang].activities.music;
+            activityCards[2].querySelectorAll('.features-list li')[0].querySelector('span').textContent = translations[lang].activities.menu;
+            activityCards[2].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.wine;
+            activityCards[2].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.music;
             activityCards[2].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             // Actualizar testimonios
             document.querySelector('#resenas .section-title').innerHTML = 
-                `${translations[lang].testimonials.title} <span class="highlight">${translations[lang].testimonials.title.split(' ')[1] || ''}</span>`;
+                `${translations[lang].testimonials.title}`;
             document.querySelectorAll('.testimonial-text')[0].textContent = `"${translations[lang].testimonials.testimonial1}"`;
             document.querySelectorAll('.testimonial-text')[1].textContent = `"${translations[lang].testimonials.testimonial2}"`;
     
             // Actualizar sección de contacto
             document.querySelector('#contacto .section-title').innerHTML = 
-                `${translations[lang].contact.title} <span class="highlight">${translations[lang].contact.title.split(' ').slice(-1)[0] || ''}</span>`;
+                `${translations[lang].contact.title}`;
             document.querySelector('#contacto .lead').textContent = translations[lang].contact.subtitle;
             document.querySelector('#contacto input[name="nombre"]').placeholder = translations[lang].contact.name;
             document.querySelector('#contacto input[name="email"]').placeholder = translations[lang].contact.emailPlaceholder;
