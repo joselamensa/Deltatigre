@@ -93,14 +93,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const activityCards = document.querySelectorAll('.experience-card');
             activityCards[0].querySelector('h3').textContent = translations[lang].activities.boat;
             activityCards[0].querySelector('.card-content p').textContent = translations[lang].activities.boatDesc;
-            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 horas`;
+            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas'}`;
             activityCards[0].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.people;
             activityCards[0].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.route;
             activityCards[0].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             activityCards[1].querySelector('h3').textContent = translations[lang].activities.tours;
             activityCards[1].querySelector('.card-content p').textContent = translations[lang].activities.toursDesc;
-            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 4 horas`;
+            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 4 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas'}`;
             activityCards[1].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.groups;
             activityCards[1].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.photo;
             activityCards[1].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
