@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLang = localStorage.getItem('selectedLanguage') || 'es';
     changeLanguage(savedLang);
     document.getElementById('currentLanguage').textContent = savedLang.toUpperCase();
+    document.getElementById('currentLanguageDesktop').textContent = savedLang.toUpperCase();
 
     // Configurar el selector de idiomas
     const languageOptions = document.querySelectorAll('.language-option');
@@ -13,6 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
             changeLanguage(lang);
             localStorage.setItem('selectedLanguage', lang);
             document.getElementById('currentLanguage').textContent = lang.toUpperCase();
+            document.getElementById('currentLanguageDesktop').textContent = lang.toUpperCase();
+            
+            // Actualizar los botones de WhatsApp para las experiencias
+            setupWhatsAppButtons();
         });
     });
 
@@ -74,6 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (heroTitle && translations[lang].hero?.title) {
                 heroTitle.textContent = translations[lang].hero.title;
             }
+            
+            // Hero subtitle
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle && translations[lang].hero?.subtitle) {
+                heroSubtitle.textContent = translations[lang].hero.subtitle;
+            }
     
             // Sección de actividades
             const activitiesTitle = document.querySelector('#actividades .section-title');
@@ -93,23 +104,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const activityCards = document.querySelectorAll('.experience-card');
             activityCards[0].querySelector('h3').textContent = translations[lang].activities.boat;
             activityCards[0].querySelector('.card-content p').textContent = translations[lang].activities.boatDesc;
-            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas'}`;
+            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 5 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas, de 11 a 16 horas con almuerzo incluido'}`;
             activityCards[0].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.people;
             activityCards[0].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.route;
             activityCards[0].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             activityCards[1].querySelector('h3').textContent = translations[lang].activities.tours;
             activityCards[1].querySelector('.card-content p').textContent = translations[lang].activities.toursDesc;
-            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 4 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas'}`;
+            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas sincronizadas con el instante en que el sol se esconde y la luna se asoma, en aquello días que la luna se deja ver.'}`;
             activityCards[1].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.groups;
             activityCards[1].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.photo;
             activityCards[1].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
-    
+            
             activityCards[2].querySelector('h3').textContent = translations[lang].activities.dinner;
             activityCards[2].querySelector('.card-content p').textContent = translations[lang].activities.dinnerDesc;
-            activityCards[2].querySelectorAll('.features-list li')[0].querySelector('span').textContent = translations[lang].activities.menu;
-            activityCards[2].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.wine;
-            activityCards[2].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.music;
+            activityCards[2].querySelectorAll('.features-list li')[0].querySelector('span').textContent = 
+                `${translations[lang].activities.duration}: 5 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas, de 11 a 16 horas con almuerzo incluido'}`;
+            activityCards[2].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.menu;
+            activityCards[2].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.wine;
+            activityCards[2].querySelectorAll('.features-list li')[3].querySelector('span').textContent = translations[lang].activities.music;
             activityCards[2].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
     
             // Actualizar testimonios
@@ -131,6 +144,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const responseElement = document.getElementById("formResponse");
             if (responseElement) {
                 responseElement.dataset.i18nResponse = "contact.response";
+            }
+            
+            // Actualizar mensaje de WhatsApp
+            const whatsappButton = document.getElementById("whatsappButton");
+            if (whatsappButton && translations[lang].whatsapp?.message) {
+                const encodedMessage = encodeURIComponent(translations[lang].whatsapp.message);
+                whatsappButton.href = `https://wa.me/+5491131977801?text=${encodedMessage}`;
             }
         } catch (error) {
             console.error('Error updating specific elements:', error);
@@ -252,4 +272,61 @@ document.addEventListener("DOMContentLoaded", function () {
             confetti.remove();
         }, animationDuration * 1000);
     }
+
+    // Configurar los botones de reserva para abrir WhatsApp con mensajes personalizados
+    setupWhatsAppButtons();
 });
+
+// Función para configurar los botones de WhatsApp con mensajes personalizados
+function setupWhatsAppButtons() {
+    // Obtener todos los enlaces de reserva
+    const bookLinks = document.querySelectorAll('.experience-card .btn-gold');
+    
+    // Obtener el idioma actual
+    const currentLang = localStorage.getItem('selectedLanguage') || 'es';
+    console.log('Idioma actual para WhatsApp:', currentLang);
+    
+    // Configurar cada enlace con su mensaje personalizado
+    bookLinks.forEach((link, index) => {
+        // Eliminar eventos anteriores para evitar duplicados
+        if (link.clickHandler) {
+            link.removeEventListener('click', link.clickHandler);
+        }
+        
+        // Crear un nuevo manejador de eventos
+        link.clickHandler = function(e) {
+            e.preventDefault();
+            
+            // Obtener el idioma actual
+            const currentLang = localStorage.getItem('selectedLanguage') || 'es';
+            
+            let messageKey;
+            
+            // Determinar qué mensaje usar según el índice del enlace
+            switch(index) {
+                case 0:
+                    messageKey = 'boatMessage';
+                    break;
+                case 1:
+                    messageKey = 'toursMessage';
+                    break;
+                case 2:
+                    messageKey = 'dinnerMessage';
+                    break;
+                default:
+                    messageKey = 'message';
+            }
+            
+            // Obtener el mensaje traducido
+            const message = translations[currentLang].whatsapp[messageKey];
+            console.log('Mensaje de WhatsApp:', message);
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Abrir WhatsApp con el mensaje personalizado
+            window.open(`https://wa.me/+5491131977801?text=${encodedMessage}`, '_blank');
+        };
+        
+        // Agregar el nuevo manejador de eventos
+        link.addEventListener('click', link.clickHandler);
+    });
+}

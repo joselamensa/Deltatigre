@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excursiones en el Delta - Experiencias Únicas</title>
+    <meta name="description" content="Descubre las mejores excursiones en lancha y experiencias únicas en el Delta del Tigre, Buenos Aires. ¡Reserva tu aventura hoy!">
+    <meta name="keywords" content="excursiones delta, lanchas delta, experiencias delta, viajes delta, tigre, buenos aires, turismo, naturaleza, aventura, paseos en lancha, guías expertos, canales secretos, reserva, contacto">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/imgs/logo/logo.jpg">
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color: aliceblue;" href="#">Lamensa</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" href="#"><img src="/imgs/logo/logopng.png" alt="Logo de Delta Oculto" class="logo-img"></a>
+            <div class="mobile-nav-buttons d-flex d-lg-none align-items-center">
+                <!-- Selector de idiomas -->
+                <div class="language-selector">
+                    <div class="dropdown">
+                        <button class="btn btn-language dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe"></i> <span id="currentLanguage">ES</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item language-option" href="#" data-lang="es">Español</a></li>
+                            <li><a class="dropdown-item language-option" href="#" data-lang="en">English</a></li>
+                            <li><a class="dropdown-item language-option" href="#" data-lang="pt">Português</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -33,13 +52,13 @@
                     </li>
                 </ul>
             </div>
-            <!-- Selector de idiomas -->
-            <div class="language-selector ms-auto">
+            <!-- Selector de idiomas para desktop -->
+            <div class="language-selector d-none d-lg-block ms-auto">
                 <div class="dropdown">
-                    <button class="btn btn-language dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-globe"></i> <span id="currentLanguage">ES</span>
+                    <button class="btn btn-language dropdown-toggle" type="button" id="languageDropdownDesktop" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-globe"></i> <span id="currentLanguageDesktop">ES</span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdownDesktop">
                         <li><a class="dropdown-item language-option" href="#" data-lang="es">Español</a></li>
                         <li><a class="dropdown-item language-option" href="#" data-lang="en">English</a></li>
                         <li><a class="dropdown-item language-option" href="#" data-lang="pt">Português</a></li>
@@ -49,8 +68,39 @@
         </div>
     </nav>
     <header class="hero">
-        <h1 data-i18n="hero.title">Vive la mejor experiencia en el Delta</h1>
+        <div class="hero-content">
+            <h1 data-i18n="hero.title">Solo para los que se animan a salirse del mapa</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Paseos privados por lo oculto del Delta, lejos del turismo, rodeados de naturaleza y silencio. Cada detalle está cuidadosamente pensado: desde la comodidad del viaje hasta la calidad de la comida y la atención cálida y personalizada de nuestro equipo.</p>
+        </div>
     </header>
+    <!-- ¿Quién soy? con imagen -->
+    <section id="quien-soy" class="container py-5">
+        <div class="row align-items-center">
+            <!-- Imagen (ajustá la ruta a tu foto real) -->
+            <div class="col-md-5 mb-4 mb-md-0">
+                <img src="./imgs/backgrounds/toni.jpg" alt="Foto de Antonio" class="img-fluid rounded shadow">
+            </div>
+            
+            <!-- Texto -->
+            <div class="col-md-7">
+                    <h2 class="section-title">¿Qué ofrecemos?</h2>
+                    <p class="lead text-white">
+                        Ofrecemos experiencias privadas para quienes desean descubrir el lado más tranquilo y escondido del Delta. 
+                        Navegamos por circuitos alejados del turismo convencional, rodeados de naturaleza, silencio y belleza. 
+                        Nuestros paseos incluyen la posibilidad de disfrutar un almuerzo, merienda, atardecer o salida de luna. 
+                        Atención cálida, calidad en cada detalle y cupos limitados para que cada experiencia sea única.
+                    </p>
+                <h2 class="section-title">¿Quién soy?</h2>
+                <p class="lead text-white">
+                    Soy Antonio, tu guía por el Delta y apasionado de sus secretos mejor guardados. 
+                    Mi objetivo es ofrecerte un paseo único, donde puedas desconectarte, respirar aire puro 
+                    y redescubrir el mundo silvestre... sin multitudes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
      <!-- Actividades - Versión Mejorada -->
      <section id="actividades" class="container-fluid py-5">
         <div class="container">
@@ -58,19 +108,19 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="experience-card">
-                        <div class="card-image" style="background-image: url('./imgs/actividades/1574205957.jpg')"></div>
+                        <div class="card-image" style="background-image: url('./imgs/actividades/deltapaseo.jpg')"></div>
                         <div class="card-content">
                             <h3 data-i18n="activities.boat">Paseos en Lancha</h3>
-                            <p data-i18n="activities.boatDesc">Navega por los canales secretos del Delta con nuestros guías expertos.</p>
+                            <p data-i18n="activities.boatDesc">Descubrí una experiencia auténtica, exclusiva y natural en el Delta del Tigre. Accedé a circuitos fuera del mapa turístico tradicional, diseñados para quienes buscan paz, belleza y conexión real con la naturaleza.</p>
                             <div class="card-hover-content">
                                 <ul class="features-list">
                                     <li><i class="fas fa-clock" style="margin-right: 2vh;"></i> <span data-i18n="activities.duration">Duración</span></li>
                                     <li><i class="fas fa-users" style="margin-right: 2vh;"></i> <span data-i18n="activities.people">Hasta 8 personas</span></li>
                                     <li><i class="fas fa-map-marked-alt" style="margin-right: 2vh;"></i> <span data-i18n="activities.route">Ruta personalizada</span></li>
                                 </ul>
-                                <button class="btn btn-gold">
+                                <a href="#" class="btn btn-gold">
                                     <span data-i18n="activities.book">Reservar Ahora</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -78,40 +128,41 @@
                 <!-- En las cards de actividades (segunda y tercera card) -->
                 <div class="col-md-6 col-lg-4">
                     <div class="experience-card">
-                        <div class="card-image" style="background-image: url('./imgs/actividades/98.jpg')"></div>
+                        <div class="card-image" style="background-image: url('./imgs/actividades/sunset.jpg')"></div>
                         <div class="card-content">
-                            <h3 data-i18n="activities.tours">Excursiones Guiadas</h3>
-                            <p data-i18n="activities.toursDesc">Descubre la flora y fauna local con nuestros biólogos especializados.</p>
+                            <h3 data-i18n="activities.tours">Atardecer & Luna naciente</h3>
+                            <p data-i18n="activities.toursDesc">Navegamos hacia un rincón del Delta donde el sol se pone en el horizonte y la luna aparece con el perfil de la ciudad de trasfondo. Todo desde la lancha, con un trago en mano y tapas para compartir. Una experiencia mágica y visualmente inolvidable.</p>
                             <div class="card-hover-content">
                                 <ul class="features-list">
                                     <li><i class="fas fa-clock" style="margin-right: 2vh;"></i> <span data-i18n="activities.duration">Duración</span></li>
                                     <li><i class="fas fa-users" style="margin-right: 2vh;"></i> <span data-i18n="activities.groups">Grupos pequeños</span></li>
                                     <li><i class="fas fa-camera" style="margin-right: 2vh;"></i> <span data-i18n="activities.photo">Fotografía incluida</span></li>
                                 </ul>
-                                <button class="btn btn-gold">
+                                <a href="#" class="btn btn-gold">
                                     <span data-i18n="activities.book">Reservar Ahora</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Tercera card -->
                 <div class="col-md-6 col-lg-4">
                     <div class="experience-card">
                         <div class="card-image" style="background-image: url('./imgs/actividades/comidavino.jpg')"></div>
                         <div class="card-content">
-                            <h3 data-i18n="activities.dinner">Cena en Isla Privada</h3>
-                            <p data-i18n="activities.dinnerDesc">Una experiencia gastronómica única en medio del río.</p>
+                            <h3 data-i18n="activities.dinner">Un almuerzo adaptado para cada viajero</h3>
+                            <p data-i18n="activities.dinnerDesc">Disfruta de una experiencia culinaria exclusiva en el corazón del río.</p>
                             <div class="card-hover-content">
                                 <ul class="features-list">
-                                    <li><i class="fas fa-utensils" style="margin-right: 2vh;"></i> <span data-i18n="activities.menu">Menú degustación</span></li>
-                                    <li><i class="fas fa-wine-glass-alt" style="margin-right: 2vh;"></i> <span data-i18n="activities.wine">Vinos seleccionados</span></li>
-                                    <li><i class="fas fa-music" style="margin-right: 2vh;"></i> <span data-i18n="activities.music">Ambiente musical</span></li>
+                                    <li><i class="fas fa-clock" style="margin-right: 2vh;"></i> <span data-i18n="activities.duration">Duración</span></li>
+                                    <li><i class="fas fa-star" style="margin-right: 2vh;"></i> <span data-i18n="activities.menu">Almuerzo cinco estrellas</span></li>
+                                    <li><i class="fas fa-utensils" style="margin-right: 2vh;"></i> <span data-i18n="activities.wine">Almuerzo privado en una casa de ensueño</span></li>
+                                    <li><i class="fas fa-wine-glass-alt" style="margin-right: 2vh;"></i> <span data-i18n="activities.music">Almuerzo simple y acogedor frente al rio</span></li>
                                 </ul>
-                                <button class="btn btn-gold">
+                                <a href="#" class="btn btn-gold">
                                     <span data-i18n="activities.book">Reservar Ahora</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -129,11 +180,11 @@
                     <div class="testimonial-card">
                         <div class="testimonial-body">
                             <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                            <p class="testimonial-text">"Una experiencia inolvidable, servicio impecable! Los atardeceres en el Delta son algo que todo el mundo debería experimentar al menos una vez en la vida."</p>
+                            <p class="testimonial-text">“Fue mágico. No es un paseo más, es como visitar un lugar escondido con alguien que vive ahí. Me llevé paz, fotos increíbles y ganas de volver.”</p>
                             <div class="testimonial-author">
                                 <div class="author-image" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
                                 <div class="author-info">
-                                    <h4>Juan Pérez</h4>
+                                    <h4>Regiane C</h4>
                                     <div class="stars">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -181,15 +232,19 @@
                     <div class="contact-info">
                         <div class="info-item">
                             <i class="fas fa-phone-alt" style="margin-right: 2vh;"></i>
-                            <p style="margin-bottom: 0;">+54 11 1234-5678</p>
+                            <a href="https://wa.me/+541131977801" style="margin-bottom: 0; color: inherit; text-decoration: none;">+54 11 3197-7801</a>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-envelope" style="margin-right: 2vh;"></i>
-                            <p style="margin-bottom: 0;">info@deltaexperiences.com</p>
+                            <a href="mailto:hola@deltaoculto.com" style="margin-bottom: 0; color: inherit; text-decoration: none;">hola@deltaoculto.com</a>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt" style="margin-right: 2vh;"></i>
-                            <p style="margin-bottom: 0;">Dique Luján, Tigre, Buenos Aires</p>
+                            <a href="https://g.co/kgs/iXCjV12" style="margin-bottom: 0; text-decoration: none; color: #f5f5f5;">Dique Luján, Tigre, Buenos Aires</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-instagram" style="margin-right: 2vh;"></i>
+                            <a href="https://www.instagram.com/delta.oculto/" style="margin-bottom: 0; text-decoration: none; color: #f5f5f5;">@delta.oculto</a>
                         </div>
                     </div>
                 </div>
@@ -217,6 +272,9 @@
                     </div>
                 </div>
             </div>
+            <div class="map-embed" style="margin-top: 5vh;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3292.9717680582125!2d-58.6555103!3d-34.376638299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca18ae1c79247%3A0x2be6fcfccee02782!2sGUARDERIA%20NAUTICA%20SUELTEN%20AMARRAS!5e0!3m2!1ses-419!2sar!4v1744740554086!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
 
@@ -226,5 +284,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="./js/translations.js"></script>
     <script src="./js/script.js"></script>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+5491131977801?text=" id="whatsappButton" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>

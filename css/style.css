@@ -38,8 +38,8 @@ h1, h2, h3, h4 {
 }
 .logo-img {
     height: 40px;
-    width: auto; /* Mantiene la proporción */
-    object-fit: contain; /* Evita distorsión */
+    width: auto;
+    object-fit: contain;
 }
 /* Navbar (mejoras adicionales) */
 .navbar {
@@ -99,23 +99,71 @@ h1, h2, h3, h4 {
 }
 /* Hero Section (mejoras) */
 .hero {
-    height: 100vh;
+    height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('../imgs/backgrounds/fondo1.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 1200px;
 }
 
 .hero h1 {
     font-size: 4.5rem;
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     animation: fadeInUp 1s ease-out;
 }
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 1.2s ease-out;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+#quien-soy {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#quien-soy h2.section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#quien-soy p.lead {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+#quien-soy img {
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#quien-soy img:hover {
+    transform: scale(1.03);
+    border-color: #d4af37;
+}
+
 
 /* Experiencias Cards - Efecto "De otro planeta" */
 .experience-card {
@@ -125,7 +173,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    height: 450px;
+    height: 75vh;
     perspective: 1000px;
     transform-style: preserve-3d;
 }
@@ -339,16 +387,6 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-}
-
 .contact-info {
     margin-top: 30px;
 }
@@ -431,6 +469,10 @@ textarea.form-control {
         font-size: 2.5rem;
     }
     
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+    
     .section-title {
         font-size: 2rem;
     }
@@ -453,21 +495,97 @@ textarea.form-control {
 @media (max-width: 991.98px) {
     .navbar {
         background-color: #121212 !important;
-        padding: 10px 20px;
+        padding: 10px 15px;
     }
 
     .navbar-collapse {
         background-color: #121212;
         padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
 
     .navbar-nav {
-        flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
     }
 
     .nav-link {
         padding: 10px 0;
-        width: 100%;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    /* Estilos específicos para móvil */
+    .mobile-nav-buttons {
+        margin-left: auto;
+    }
+
+    .mobile-nav-buttons .language-selector {
+        margin-right: 15px;
+        padding-right: 0;
+    }
+
+    .mobile-nav-buttons .btn-language {
+        padding: 4px 10px;
+        font-size: 0.9rem;
+    }
+
+    .navbar-toggler {
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .mobile-nav-buttons .btn-language {
+        padding: 3px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 20px;
+        right: 20px;
     }
 }
