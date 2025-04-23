@@ -49,7 +49,8 @@ const translations = {
             message: "Tu Mensaje",
             send: "Enviar Mensaje",
             success: "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.",
-            error: "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+            error: "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+            reviewMessage: "Hola, te quiero dejar la siguiente reseña:"
         },
         whatsapp: {
             message: "Hola tengo dudas sobre la experiencia al delta",
@@ -101,7 +102,8 @@ const translations = {
             message: "Your Message",
             send: "Send Message",
             success: "Message sent successfully! We will contact you soon.",
-            error: "There was an error sending the message. Please try again."
+            error: "There was an error sending the message. Please try again.",
+            reviewMessage: "Hi, I want to leave you the following review:"
         },
         whatsapp: {
             message: "Hi, I have questions about the delta experience",
@@ -160,7 +162,8 @@ const translations = {
             message: "Sua Mensagem",
             send: "Enviar Mensagem",
             success: "Mensagem enviada com sucesso! Entraremos em contato em breve.",
-            error: "Houve um erro ao enviar a mensagem. Por favor, tente novamente."
+            error: "Houve um erro ao enviar a mensagem. Por favor, tente novamente.",
+            reviewMessage: "Olá, quero deixar a seguinte avaliação:"
         },
         whatsapp: {
             message: "Olá, tenho dúvidas sobre a experiência no delta",

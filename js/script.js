@@ -256,7 +256,9 @@ document.addEventListener("DOMContentLoaded", function () {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
+            const nombre = this.querySelector('input[name="nombre"]').value;
+            const email = this.querySelector('input[name="email"]').value;
+            const mensaje = this.querySelector('textarea[name="mensaje"]').value;
             const responseElement = document.getElementById("formResponse");
             const currentLang = localStorage.getItem('selectedLanguage') || 'es';
             
@@ -264,42 +266,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const translations = window.translations ? window.translations[currentLang] : null;
             
             // Mostrar indicador de carga
-            responseElement.textContent = "Enviando...";
+            responseElement.textContent = "Preparando...";
             responseElement.style.color = "#d4af37";
             
-            // Envío real del formulario
-            fetch('enviar.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                // Verificar si la respuesta es JSON
-                const contentType = response.headers.get('content-type');
-                if (contentType && contentType.includes('application/json')) {
-                    return response.json();
-                } else {
-                    // Si no es JSON, devolver un error
-                    throw new Error('La respuesta del servidor no es JSON válido');
-                }
-            })
-            .then(data => {
-                if (data.status === 'success') {
-                    responseElement.textContent = translations?.contact?.success || "¡Mensaje enviado con éxito!";
-                    responseElement.style.color = "#d4af37";
-                    contactForm.reset();
-                    
-                    // Efecto de confeti
-                    createConfetti();
-                } else {
-                    responseElement.textContent = data.message || translations?.contact?.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
-                    responseElement.style.color = "#ff6b6b";
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                responseElement.textContent = translations?.contact?.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
-                responseElement.style.color = "#ff6b6b";
-            });
+            // Crear mensaje para WhatsApp
+            const reviewMessage = translations?.contact?.reviewMessage || "Hola, te quiero dejar la siguiente reseña:";
+            const whatsappMessage = `${reviewMessage} *${mensaje}*`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Abrir WhatsApp con el mensaje
+            window.open(`https://wa.me/+5491131977801?text=${encodedMessage}`, '_blank');
+            
+            // Mostrar mensaje de éxito
+            responseElement.textContent = translations?.contact?.success || "¡Mensaje enviado con éxito!";
+            responseElement.style.color = "#d4af37";
+            contactForm.reset();
+            
+            // Efecto de confeti
+            createConfetti();
         });
     }
     
