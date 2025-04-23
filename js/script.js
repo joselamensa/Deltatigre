@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 
                 if (translation && typeof translation === 'string') {
-                    element.textContent = translation;
+                    element.innerHTML = translation;
                 }
             } catch (error) {
                 console.error(`Error updating element:`, element, error);
@@ -92,38 +92,71 @@ document.addEventListener("DOMContentLoaded", function () {
                 activitiesTitle.innerHTML = translations[lang].activities.title;
             }
             const testimoniosTitle = document.querySelector('#testimonios-title');
-            if (testimoniosTitle && translations[lang].voces?.title) {
-            testimoniosTitle.innerHTML = translations[lang].voces.title;
+            if (testimoniosTitle && translations[lang].testimonials?.title) {
+                testimoniosTitle.innerHTML = translations[lang].testimonials.title;
             }
 
             const contactTitle = document.querySelector('#contact-title');
             if (contactTitle && translations[lang].contact?.title) {
-            contactTitle.innerHTML = translations[lang].contact.title;
+                contactTitle.innerHTML = translations[lang].contact.title;
             }
             // Actualizar cards de actividades
             const activityCards = document.querySelectorAll('.experience-card');
-            activityCards[0].querySelector('h3').textContent = translations[lang].activities.boat;
-            activityCards[0].querySelector('.card-content p').textContent = translations[lang].activities.boatDesc;
-            activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 5 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas, de 11 a 16 horas con almuerzo incluido'}`;
-            activityCards[0].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.people;
-            activityCards[0].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.route;
-            activityCards[0].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
-    
-            activityCards[1].querySelector('h3').textContent = translations[lang].activities.tours;
-            activityCards[1].querySelector('.card-content p').textContent = translations[lang].activities.toursDesc;
-            activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas sincronizadas con el instante en que el sol se esconde y la luna se asoma, en aquello días que la luna se deja ver.'}`;
-            activityCards[1].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.groups;
-            activityCards[1].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.photo;
-            activityCards[1].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
             
-            activityCards[2].querySelector('h3').textContent = translations[lang].activities.dinner;
-            activityCards[2].querySelector('.card-content p').textContent = translations[lang].activities.dinnerDesc;
-            activityCards[2].querySelectorAll('.features-list li')[0].querySelector('span').textContent = 
-                `${translations[lang].activities.duration}: 5 ${lang === 'en' ? 'hours' : lang === 'pt' ? 'horas' : 'horas, de 11 a 16 horas con almuerzo incluido'}`;
-            activityCards[2].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.menu;
-            activityCards[2].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.wine;
-            activityCards[2].querySelectorAll('.features-list li')[3].querySelector('span').textContent = translations[lang].activities.music;
-            activityCards[2].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
+            // Primera tarjeta - Paseos en Lancha
+            if (activityCards[0]) {
+                activityCards[0].querySelector('h3').textContent = translations[lang].activities.boat;
+                activityCards[0].querySelector('.card-content p').textContent = translations[lang].activities.boatDesc;
+                activityCards[0].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 3 ${lang === 'en' ? 'hours, schedules to be arranged.' : lang === 'pt' ? 'horas, a combinar horários' : 'horas, a combinar horario.'}`;
+                activityCards[0].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.people;
+                activityCards[0].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.route;
+                activityCards[0].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
+            }
+    
+            // Segunda tarjeta - Atardecer & Luna naciente
+            if (activityCards[1]) {
+                activityCards[1].querySelector('h3').textContent = translations[lang].activities.tours;
+                activityCards[1].querySelector('.card-content p').textContent = translations[lang].activities.toursDesc;
+                activityCards[1].querySelectorAll('.features-list li')[0].querySelector('span').textContent = `${translations[lang].activities.duration}: 2 ${lang === 'en' ? 'hours Synchronized with the moment when the sun sets and the moon appears, on those days when the moon can be seen.' : lang === 'pt' ? 'horas, Sincronizado com o momento em que o sol se põe e a lua aparece, naqueles dias em que a lua pode ser vista.' : 'horas aproximadas, a combinar horarios. Sincronizadas con el instante en que el sol se esconde y la luna se asoma, en aquellos días en los que la luna se deja ver.'}`;
+                activityCards[1].querySelectorAll('.features-list li')[1].querySelector('span').textContent = translations[lang].activities.groups;
+                activityCards[1].querySelectorAll('.features-list li')[2].querySelector('span').textContent = translations[lang].activities.photo;
+                activityCards[1].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
+            }
+            
+            // Tercera tarjeta - Almuerzo adaptado
+            if (activityCards[2]) {
+                activityCards[2].querySelector('h3').textContent = translations[lang].activities.dinner;
+                activityCards[2].querySelector('.card-content p').textContent = translations[lang].activities.dinnerDesc;
+                
+                // Actualizar las características de la tercera tarjeta
+                const features = activityCards[2].querySelectorAll('.features-list li');
+                
+                // Duración
+                if (features[0]) {
+                    features[0].querySelector('span').textContent = `${translations[lang].activities.duration}: ${lang === 'en' ? 'Full day, schedules to be arranged.' : lang === 'pt' ? 'Dia completo, schedules to be arranged.' : 'Día completo, a combinar horario.'}`;
+                }
+                
+                // Opciones de menú
+                if (features[1]) {
+                    features[1].querySelector('span').textContent = translations[lang].activities.options;
+                }
+                
+                // Opciones de menú (lista anidada)
+                const menuOptions = activityCards[2].querySelectorAll('.features-list ul li');
+                if (menuOptions.length >= 3) {
+                    menuOptions[0].querySelector('span').textContent = translations[lang].activities.menu;
+                    menuOptions[1].querySelector('span').textContent = translations[lang].activities.wine;
+                    menuOptions[2].querySelector('span').textContent = translations[lang].activities.music;
+                }
+                
+                // Puesta del sol
+                if (features[features.length - 1]) {
+                    features[features.length - 1].querySelector('span').textContent = translations[lang].activities.sun;
+                }
+                
+                // Botón de reserva
+                activityCards[2].querySelector('.btn-gold span').textContent = translations[lang].activities.book;
+            }
     
             // Actualizar testimonios
             document.querySelector('#resenas .section-title').innerHTML = 
@@ -228,17 +261,34 @@ document.addEventListener("DOMContentLoaded", function () {
             const currentLang = localStorage.getItem('selectedLanguage') || 'es';
             const translations = window.translations[currentLang];
             
-            // Simulación de envío (reemplazar con fetch real)
-            setTimeout(() => {
-                responseElement.textContent = translations.contact.response;
-                responseElement.style.color = "#d4af37";
-                contactForm.reset();
-                
-                // Efecto de confeti
-                for (let i = 0; i < 100; i++) {
+            // Mostrar indicador de carga
+            responseElement.textContent = "Enviando...";
+            responseElement.style.color = "#d4af37";
+            
+            // Envío real del formulario
+            fetch('./enviar.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    responseElement.textContent = translations.contact.success || "¡Mensaje enviado con éxito!";
+                    responseElement.style.color = "#d4af37";
+                    contactForm.reset();
+                    
+                    // Efecto de confeti
                     createConfetti();
+                } else {
+                    responseElement.textContent = data.message || translations.contact.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
+                    responseElement.style.color = "#ff6b6b";
                 }
-            }, 1000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                responseElement.textContent = translations.contact.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
+                responseElement.style.color = "#ff6b6b";
+            });
         });
     }
     

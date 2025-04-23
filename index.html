@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-i18n="nav.home">Inicio</a>
+                        <a class="nav-link" href="#inicio" data-i18n="nav.home">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#actividades" data-i18n="nav.activities">Actividades</a>
@@ -67,39 +67,44 @@
             </div>
         </div>
     </nav>
-    <header class="hero">
+    <header class="hero" id="inicio">
         <div class="hero-content">
             <h1 data-i18n="hero.title">Solo para los que se animan a salirse del mapa</h1>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">Paseos privados por lo oculto del Delta, lejos del turismo, rodeados de naturaleza y silencio. Cada detalle está cuidadosamente pensado: desde la comodidad del viaje hasta la calidad de la comida y la atención cálida y personalizada de nuestro equipo.</p>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Paseos privados por lo oculto del Delta, lejos del turismo convencional, rodeados de naturaleza y silencio. Cada detalle está cuidadosamente pensado: desde la comodidad del viaje hasta la calidad de la comida y la atención cálida y personalizada de nuestro equipo.</p>
         </div>
     </header>
-    <!-- ¿Quién soy? con imagen -->
+    <!-- En pocas palabras -->
     <section id="quien-soy" class="container py-5">
-        <div class="row align-items-center">
-            <!-- Imagen (ajustá la ruta a tu foto real) -->
-            <div class="col-md-5 mb-4 mb-md-0">
-                <img src="./imgs/backgrounds/toni.jpg" alt="Foto de Antonio" class="img-fluid rounded shadow">
+        
+        <h2 class="section-title text-center mb-5" data-i18n="summary.sectionTitle"></h2>
+        <div class="row">
+            <!-- Columna 1: Qué ofrecemos -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100" style="background-color: rgb(29, 29, 29);">
+                    <img src="./imgs/backgrounds/lancha.jpg" alt="Foto de Antonio" class="card-img-top" style="object-fit: cover; object-position: center; height: 40vh;">
+                    <div class="card-body">
+                        <h3 class="section-title" style="font-size: 2rem; color: #BB9E4A;" data-i18n="summary.offerTitle">¿Qué ofrecemos?</h3>
+                        <p class="lead text-white" style="font-size: 1rem;" data-i18n="summary.offerText">
+                            Experiencias privadas por el Delta menos explorado, rodeados de naturaleza, silencio y belleza. Nuestros paseos incluyen la posibilidad de disfrutar un almuerzo, merienda, atardecer o salida de la luna. Calidad, atención cálida, cupos limitados para que cada experiencia sea única.
+                        </p>
+                    </div>
+                </div>
             </div>
             
-            <!-- Texto -->
-            <div class="col-md-7">
-                    <h2 class="section-title">¿Qué ofrecemos?</h2>
-                    <p class="lead text-white">
-                        Ofrecemos experiencias privadas para quienes desean descubrir el lado más tranquilo y escondido del Delta. 
-                        Navegamos por circuitos alejados del turismo convencional, rodeados de naturaleza, silencio y belleza. 
-                        Nuestros paseos incluyen la posibilidad de disfrutar un almuerzo, merienda, atardecer o salida de luna. 
-                        Atención cálida, calidad en cada detalle y cupos limitados para que cada experiencia sea única.
-                    </p>
-                <h2 class="section-title">¿Quién soy?</h2>
-                <p class="lead text-white">
-                    Soy Antonio, tu guía por el Delta y apasionado de sus secretos mejor guardados. 
-                    Mi objetivo es ofrecerte un paseo único, donde puedas desconectarte, respirar aire puro 
-                    y redescubrir el mundo silvestre... sin multitudes.
-                </p>
+            <!-- Columna 2: Quién soy -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100" style="background-color: rgb(29, 29, 29);">
+                    <img src="./imgs/backgrounds/tonimate.jpg" alt="Foto de Antonio" class="card-img-top" style="object-fit: cover; object-position: center; height: 40vh;">
+                    <div class="card-body">
+                        <h3 class="section-title" style="font-size: 2rem; color: #BB9E4A;" data-i18n="summary.aboutTitle">¿Quién soy?</h3>
+                        <p class="lead text-white" style="font-size: 1rem;" data-i18n="summary.aboutText">
+                            Soy Antonio, tu guía por el Delta y apasionado de sus secretos mejor guardados. Pero no estoy solo: detrás de cada experiencia hay un equipo comprometido que cuida cada detalle para ofrecerte un paseo único, donde puedas desconectarte, respirar aire puro y redescubrir el mundo silvestre... sin multitudes.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
 
      <!-- Actividades - Versión Mejorada -->
      <section id="actividades" class="container-fluid py-5">
@@ -156,9 +161,15 @@
                             <div class="card-hover-content">
                                 <ul class="features-list">
                                     <li><i class="fas fa-clock" style="margin-right: 2vh;"></i> <span data-i18n="activities.duration">Duración</span></li>
-                                    <li><i class="fas fa-star" style="margin-right: 2vh;"></i> <span data-i18n="activities.menu">Almuerzo cinco estrellas</span></li>
-                                    <li><i class="fas fa-utensils" style="margin-right: 2vh;"></i> <span data-i18n="activities.wine">Almuerzo privado en una casa de ensueño</span></li>
-                                    <li><i class="fas fa-wine-glass-alt" style="margin-right: 2vh;"></i> <span data-i18n="activities.music">Almuerzo simple y acogedor frente al rio</span></li>
+                                    <li><i class="fas fa-utensils" style="margin-right: 2vh;"></i> <span data-i18n="activities.options">3 Opciones de menú:</span></li>
+                                    <ul>
+                                        <li><i class="fas fa-star" style="margin-right: 2vh;"></i> <span data-i18n="activities.menu">Almuerzo cinco estrellas</span></li>
+                                        <li><i class="fas fa-utensils" style="margin-right: 2vh;"></i> <span data-i18n="activities.wine">Almuerzo privado en una casa de ensueño</span></li>
+                                        <li><i class="fas fa-wine-glass-alt" style="margin-right: 2vh;"></i> <span data-i18n="activities.music">Almuerzo simple y acogedor frente al rio</span></li>
+                                        
+                                    </ul>
+                                <li><i class="fas fa-sun" style="margin-right: 2vh;"></i> <span data-i18n="activities.sun">Todas estas incluyen puesta del sol</span></li>
+
                                 </ul>
                                 <a href="#" class="btn btn-gold">
                                     <span data-i18n="activities.book">Reservar Ahora</span>
@@ -184,7 +195,7 @@
                             <div class="testimonial-author">
                                 <div class="author-image" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
                                 <div class="author-info">
-                                    <h4>Regiane C</h4>
+                                    <h4>Joao C</h4>
                                     <div class="stars">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -203,9 +214,9 @@
                             <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                             <p class="testimonial-text">"Los paisajes son hermosos, volveré sin duda. El equipo nos hizo sentir como en casa y conocimos rincones que nunca hubiéramos descubierto por nuestra cuenta."</p>
                             <div class="testimonial-author">
-                                <div class="author-image" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg')"></div>
+                                <div class="author-image" style="background-image: url('https://randomuser.me/api/portraits/women/63.jpg')"></div>
                                 <div class="author-info">
-                                    <h4>María González</h4>
+                                    <h4>María G.</h4>
                                     <div class="stars">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -250,7 +261,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-form-wrapper">
-                        <form action="enviar.php" method="post" id="contactForm" class="contact-form">
+                        <h2 class="mb-4 text-center">Envianos tu reseña</h2>
+                        <form action="./enviar.php" method="post" id="contactForm" class="contact-form">
                             <div class="form-group">
                                 <input type="text" name="nombre" class="form-control" placeholder="Tu Nombre" required data-i18n-placeholder="contact.name">
                                 <i class="fas fa-user input-icon"></i>

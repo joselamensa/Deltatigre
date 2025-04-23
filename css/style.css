@@ -23,7 +23,7 @@ h1, h2, h3, h4 {
 }
 
 .section-title .highlight {
-    color: #d4af37;
+    color: #BB9E4A;;
     position: relative;
 }
 
@@ -154,15 +154,7 @@ h1, h2, h3, h4 {
     line-height: 1.7;
     margin-bottom: 2rem;
 }
-#quien-soy img {
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    transition: transform 0.3s ease;
-}
 
-#quien-soy img:hover {
-    transform: scale(1.03);
-    border-color: #d4af37;
-}
 
 
 /* Experiencias Cards - Efecto "De otro planeta" */
