@@ -168,9 +168,18 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector('#contacto .section-title').innerHTML = 
                 `${translations[lang].contact.title}`;
             document.querySelector('#contacto .lead').textContent = translations[lang].contact.subtitle;
-            document.querySelector('#contacto input[name="nombre"]').placeholder = translations[lang].contact.name;
-            document.querySelector('#contacto input[name="email"]').placeholder = translations[lang].contact.emailPlaceholder;
-            document.querySelector('#contacto textarea').placeholder = translations[lang].contact.message;
+            
+            // Actualizar placeholders solo si los elementos existen
+            const nameInput = document.querySelector('#contacto input[name="nombre"]');
+            const messageTextarea = document.querySelector('#contacto textarea');
+            
+            if (nameInput) {
+                nameInput.placeholder = translations[lang].contact.name;
+            }
+            if (messageTextarea) {
+                messageTextarea.placeholder = translations[lang].contact.message;
+            }
+            
             document.querySelector('#contacto .btn-gold span').textContent = translations[lang].contact.send;
             
             // Actualizar el mensaje de respuesta del formulario
@@ -257,7 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             
             const nombre = this.querySelector('input[name="nombre"]').value;
-            const email = this.querySelector('input[name="email"]').value;
             const mensaje = this.querySelector('textarea[name="mensaje"]').value;
             const responseElement = document.getElementById("formResponse");
             const currentLang = localStorage.getItem('selectedLanguage') || 'es';
