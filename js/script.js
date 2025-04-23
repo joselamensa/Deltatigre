@@ -259,7 +259,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const formData = new FormData(this);
             const responseElement = document.getElementById("formResponse");
             const currentLang = localStorage.getItem('selectedLanguage') || 'es';
-            const translations = window.translations[currentLang];
+            
+            // Verificar si translations está disponible
+            const translations = window.translations ? window.translations[currentLang] : null;
             
             // Mostrar indicador de carga
             responseElement.textContent = "Enviando...";
@@ -273,20 +275,20 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    responseElement.textContent = translations.contact.success || "¡Mensaje enviado con éxito!";
+                    responseElement.textContent = translations?.contact?.success || "¡Mensaje enviado con éxito!";
                     responseElement.style.color = "#d4af37";
                     contactForm.reset();
                     
                     // Efecto de confeti
                     createConfetti();
                 } else {
-                    responseElement.textContent = data.message || translations.contact.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
+                    responseElement.textContent = data.message || translations?.contact?.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
                     responseElement.style.color = "#ff6b6b";
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                responseElement.textContent = translations.contact.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
+                responseElement.textContent = translations?.contact?.error || "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.";
                 responseElement.style.color = "#ff6b6b";
             });
         });

@@ -177,3 +177,6 @@ const translations = {
         }        
     }
 };
+
+// Hacer que translations sea accesible globalmente
+window.translations = translations;
