@@ -268,11 +268,20 @@ document.addEventListener("DOMContentLoaded", function () {
             responseElement.style.color = "#d4af37";
             
             // Envío real del formulario
-            fetch('./enviar.php', {
+            fetch('enviar.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
+            .then(response => {
+                // Verificar si la respuesta es JSON
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    return response.json();
+                } else {
+                    // Si no es JSON, devolver un error
+                    throw new Error('La respuesta del servidor no es JSON válido');
+                }
+            })
             .then(data => {
                 if (data.status === 'success') {
                     responseElement.textContent = translations?.contact?.success || "¡Mensaje enviado con éxito!";
