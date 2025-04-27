@@ -22,19 +22,17 @@ const translations = {
             boatDesc: "Descubrí una experiencia auténtica, exclusiva y natural en el Delta del Tigre. Accedé a circuitos fuera del mapa turístico tradicional, diseñados para quienes buscan paz, belleza y conexión real con la naturaleza.",
             tours: "Atardecer & Luna naciente",
             toursDesc: "Navegamos hacia un rincón del Delta donde el sol se pone en el horizonte y la luna aparece con el perfil de la ciudad de trasfondo. Todo desde la lancha, con un trago en mano y tapas para compartir. Una experiencia mágica y visualmente inolvidable.",
-            dinner: "Un almuerzo adaptado para cada viajero",
+            dinner: "Navegación y almuerzo privado en una casa de ensueño",
             dinnerDesc: "Una experiencia gastronómica única en medio del río.",
             duration: "Duración",
             people: "Hasta 8 personas para garantizar una experiencia exclusiva.",
             route: "Ruta personalizada",
             groups: "Hasta 8 personas para garantizar una experiencia personalizada.",
             photo: "Fotografía incluida",
-            menu: "Almuerzo cinco estrellas",
-            wine: "Almuerzo privado en una casa de ensueño",
-            music: "Almuerzo simple y acogedor frente al rio",
+            menu: "Navegación por lo canales del delta de aprox. 3 horas",
             book: "Reservar Ahora",
-            options: "3 Opciones de menú:",
-            sun: "Todas estas incluyen puesta del sol"
+            options: "Almuerzo de 3 pasos, solo para vos y tu grupo con todo incluido.",
+            sun: "Parada para ver el atardecer y la aparición de la luna en aquellos días en los que se deja ver."
         },
         testimonials: {
             title: "Voces de Nuestros <span class='highlight'>Viajeros</span>",
@@ -56,7 +54,7 @@ const translations = {
             message: "Hola tengo dudas sobre la experiencia al delta",
             boatMessage: "Hola, estoy interesado en el paseo en lancha por el Delta",
             toursMessage: "Hola, me interesa la experiencia de atardecer y luna naciente",
-            dinnerMessage: "Hola, quisiera información sobre el almuerzo adaptado para viajeros"
+            dinnerMessage: "Hola, quisiera información sobre el almuerzo privado en una casa de ensueño"
         }
     },
     en: {
@@ -75,19 +73,19 @@ const translations = {
             boatDesc: "Discover an authentic, exclusive, and natural experience in the Tigre Delta. Access circuits off the traditional tourist map, designed for those seeking peace, beauty, and a real connection with nature.",
             tours: "Sunset & Rising Moon",
             toursDesc: "We navigate to a corner of the Delta where the sun sets on the horizon and the moon appears with the city's skyline in the background. All from the boat, with a drink in hand and tapas to share. A magical and visually unforgettable experience.",
-            dinner: "A lunch adapted for each traveler",
+            dinner: "Navigation and private lunch in a dream house",
             dinnerDesc: "Enjoy an exclusive culinary experience in the heart of the river.",
             duration: "Duration",
             people: "Up to 8 people to ensure an exclusive experience.",
             route: "Custom route",
             groups: "Up to 8 people to ensure a personalized experience.",
             photo: "Photography included",
-            menu: "Five-star lunch",
+            menu: "Navigation through the delta channels for approx. 3 hours",
             wine: "Private lunch in a dream house",
             music: "Simple and cozy lunch by the river",
             book: "Book Now",
-            options: "3 Menu Options:",
-            sun: "All of these include sunset"
+            options: "3-Step Lunch, just for you and your group with everything included.",
+            sun: "Stop to see the sunset and the moonrise on those days when it is visible."
         },
         testimonials: {
             title: "Voices from Our <span class='highlight'>Travelers</span>",
@@ -109,7 +107,7 @@ const translations = {
             message: "Hi, I have questions about the delta experience",
             boatMessage: "Hi, I'm interested in the boat ride through the Delta",
             toursMessage: "Hi, I'm interested in the sunset and rising moon experience",
-            dinnerMessage: "Hi, I'd like information about the traveler-adapted lunch"
+            dinnerMessage: "Hi, I'm interested in the private lunch in a dream house"
         },
         summary: {
             sectionTitle: "In a few <span class='highlight'>Words</span>",
@@ -135,19 +133,19 @@ const translations = {
             boatDesc: "Descubra uma experiência autêntica, exclusiva e natural no Delta do Tigre. Acesse circuitos fora do mapa turístico tradicional, projetados para quem busca paz, beleza e conexão real com a natureza.",
             tours: "Pôr do Sol & Lua Nascente",
             toursDesc: "Navegamos até um recanto do Delta onde o sol se põe no horizonte e a lua aparece com o perfil da cidade ao fundo. Tudo a partir do barco, com uma bebida na mão e petiscos para compartilhar. Uma experiência mágica e visualmente inesquecível.",
-            dinner: "Um almoço adaptado para cada viajante",
+            dinner: "Navegación y almuerzo privado en una casa de ensueño",
             dinnerDesc: "Desfrute de uma experiência culinária exclusiva no coração do rio.",
             duration: "Duração",
             people: "Até 8 pessoas para garantir uma experiência exclusiva.",
             route: "Rota personalizada",
             groups: "Até 8 pessoas para garantir uma experiência personalizada.",
             photo: "Fotografia incluída",
-            menu: "Almoço cinco estrelas",
+            menu: "Navegação pelos canais do delta de aprox. 3 horas",
             wine: "Almoço privado em uma casa dos sonhos",
             music: "Almoço simples e aconchegante à beira do rio",
             book: "Reservar Agora",
-            options: "3 Opções de menu:",
-            sun: "Todas estas incluem pôr do sol"
+            options: "Almuerzo de 3 pasos, solo para vos y tu grupo con todo incluido.",
+            sun: "Parada para ver o pôr do sol e a aparição da lua naqueles dias em que se deixa ver."
         },
         testimonials: {
             title: "Vozes de Nossos <span class='highlight'>Viajantes</span>",
@@ -169,7 +167,7 @@ const translations = {
             message: "Olá, tenho dúvidas sobre a experiência no delta",
             boatMessage: "Olá, estou interessado no passeio de barco pelo Delta",
             toursMessage: "Olá, me interessa a experiência de pôr do sol e lua nascente",
-            dinnerMessage: "Olá, gostaria de informações sobre o almoço adaptado para viajantes"
+            dinnerMessage: "Olá, gostaria de informações sobre o almoço privado em uma casa dos sonhos"
         },
         summary: {
             sectionTitle: "Em poucas <span class='highlight'>Palavras</span>",
